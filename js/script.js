@@ -7,6 +7,8 @@ let btnNext = document.querySelector('.btn-next'),
 let count = 0;
 let width;
 
+init();
+
 function init() {
     let slider = document.querySelector('.slider');
     width = slider.offsetWidth;
@@ -24,7 +26,9 @@ function rollSlider() {
     sliderLine.style.transform = 'translate(-'+count*width +'px)';
 }
 
-window.addEventListener('resize', init);
+window.addEventListener('resize', () => {
+    init();
+});
 
 btnNext.addEventListener('click', () => {
     count++;
